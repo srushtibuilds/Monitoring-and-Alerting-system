@@ -3,27 +3,21 @@ pipeline {
 
     stages {
 
-        stage('Clone Repo') {
+        stage('Install') {
             steps {
-                git 'https://github.com/srushtibuilds/Monitoring-and-Alerting-system.git'
+                bat 'python -m pip install -r requirements.txt'
             }
         }
 
-        stage('Install Dependencies') {
-            steps {
-                bat 'pip install -r requirements.txt'
-            }
-        }
-
-        stage('Run Tests') {
+        stage('Test') {
             steps {
                 bat 'python test.py'
             }
         }
 
-        stage('Success') {
+        stage('Done') {
             steps {
-                bat 'echo Build Successful!'
+                bat 'echo Build Successful'
             }
         }
 
