@@ -11,19 +11,19 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                sh 'pip install -r requirements.txt'
+                bat 'pip install -r requirements.txt'
             }
         }
 
         stage('Run Tests') {
             steps {
-                sh 'python test.py'
+                bat 'python test.py'
             }
         }
 
-        stage('Build Success') {
+        stage('Success') {
             steps {
-                sh 'echo "Monitoring System Build Successful!"'
+                bat 'echo Build Successful!'
             }
         }
 
